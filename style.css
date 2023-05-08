@@ -9,10 +9,13 @@
   /* FONTS */
   --a-size: 13px;
   --a-spacing: 1.5px;
+  --a-size-mobile: 20px;
 
   --h1-size: 72px;
   --h1-height: 64px;
   --h1-spacing: -1px;
+  --h1-size-mobile: 48px;
+  --h1-height-mobile: 48px;
 
   --h3-size: 56px;
   --h3-height: 56px;
@@ -46,6 +49,7 @@ li {
 
 a {
   text-decoration: none;
+  transition: all 0.3s;
 }
 
 img {
@@ -57,8 +61,24 @@ h1,
 h2 {
   font-size: var(--h1-size);
   font-family: var(--dm-font);
-  letter-spacing: var(--h1-spacing);
   line-height: var(--h1-height);
+}
+
+h1 {
+  color: var(--clr-white);
+  font-weight: 500;
+  position: relative;
+  margin-top: 6rem;
+  padding-top: 3rem;
+}
+
+h1::before {
+  content: '';
+  height: 1px;
+  background-color: var(--clr-white);
+  width: 150px;
+  position: absolute;
+  top: -1px;
 }
 
 p {
@@ -91,9 +111,14 @@ button p {
   text-transform: uppercase;
 }
 
+.open-menu,
+.close-menu {
+  cursor: pointer;
+  display: none;
+}
+
 /* Global WIDTH */
-header,
-footer {
+.margin-page {
   max-width: var(--xl-max-width);
   margin: auto;
 }
@@ -102,6 +127,7 @@ footer {
 header {
   justify-content: space-between;
   padding: 1rem 0;
+  z-index: 100;
 }
 header,
 header ul {
@@ -113,4 +139,178 @@ header ul {
 }
 header button {
   border: 2px solid var(--clr-dark-grey);
+  transition: all 0.3s;
+}
+
+/* HOVERS */
+header button:hover {
+  background-color: var(--clr-dark-grey);
+}
+header button:hover .header-btn-p {
+  color: var(--clr-white);
+}
+header a:hover {
+  color: var(--clr-dark-grey);
+}
+
+/* MAIN SECTION  HUMANIZING */
+.humanizing {
+  background-color: var(--clr-purple);
+  max-height: 600px;
+  isolation: isolate;
+  position: relative;
+}
+.humanizing-bg-right {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.humanizing-bg-left {
+  position: absolute;
+  left: 0;
+  bottom: -21rem;
+}
+.humanizing-wrapper {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.humanizing-mobile {
+  display: none;
+}
+.humanizing-txt {
+  max-width: 540px;
+}
+.humanizing-txt-p {
+  color: var(--clr-white);
+  margin: 2rem 0;
+}
+.humanizing-txt button {
+  border: 2px solid var(--clr-white);
+}
+.humanizing-txt button p {
+  color: var(--clr-white);
+}
+.humanizing-img {
+  position: relative;
+  bottom: -6rem;
+  z-index: -1;
+}
+.humanizing-bg-mobile {
+  display: none;
+}
+
+/* MAIN SECTION DIFFERENT*/
+.different {
+  margin-top: 21rem;
+}
+
+@media screen and (max-width: 1440px) {
+  .margin-page {
+    max-width: 85%;
+  }
+  .humanizing-wrapper {
+    gap: 2rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  h1 {
+    font-size: var(--h1-size-mobile);
+    line-height: var(--h1-height-mobile);
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+  }
+  h1::before {
+    display: none;
+  }
+  .margin-page {
+    max-width: 100%;
+  }
+  header {
+    padding: 1rem 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 66px;
+    background-color: var(--clr-white);
+  }
+  .open-menu {
+    display: block;
+  }
+  header ul {
+    position: fixed;
+    background-color: var(--clr-dark-grey);
+    background-image: url('./images/bg-pattern-mobile-nav.svg');
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    left: 0;
+    right: 0;
+    top: 66px;
+    bottom: 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 5rem;
+    gap: 3rem;
+    display: none;
+  }
+  header button {
+    border: 2px solid var(--clr-white);
+  }
+  header p {
+    color: var(--clr-white);
+  }
+  header a {
+    font-size: var(--a-size-mobile);
+    color: var(--clr-white);
+  }
+  /*SECTION HUMANIZING*/
+  .humanizing-bg-right {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .humanizing-img,
+  .humanizing-bg {
+    display: none;
+  }
+  .humanizing-bg-mobile {
+    display: block;
+    position: absolute;
+    z-index: -1;
+  }
+  .humanizing-bg-left-mobile {
+    top: 36.4rem;
+    left: 0;
+  }
+  .humanizing-bg-right-mobile {
+    bottom: -11rem;
+    right: 0;
+  }
+  .humanizing-mobile {
+    display: block;
+    object-fit: cover;
+  }
+  .humanizing {
+    max-height: unset;
+    top: 66px;
+  }
+  .humanizing-wrapper {
+    flex-direction: column;
+  }
+  .humanizing-txt {
+    text-align: center;
+    width: 90%;
+    margin: auto;
+  }
+  .humanizing button {
+    margin: 3rem auto 5rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  header ul {
+    background-position: bottom center;
+  }
 }
