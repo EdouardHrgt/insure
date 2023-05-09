@@ -62,23 +62,61 @@ h2 {
   font-size: var(--h1-size);
   font-family: var(--dm-font);
   line-height: var(--h1-height);
+  font-weight: 500;
+  position: relative;
+  padding-top: 3rem;
 }
 
 h1 {
   color: var(--clr-white);
-  font-weight: 500;
-  position: relative;
   margin-top: 6rem;
-  padding-top: 3rem;
 }
 
-h1::before {
+h2 {
+  color: var(--clr-purple);
+  margin-bottom: 6rem;
+}
+
+h1::before,
+h2::before {
   content: '';
   height: 1px;
-  background-color: var(--clr-white);
   width: 150px;
   position: absolute;
   top: -1px;
+}
+
+h1::before {
+  background-color: var(--clr-white);
+}
+
+h2::before {
+  background-color: var(--clr-purple);
+}
+
+h3 {
+  font-size: var(--h3-size);
+  line-height: var(--h3-height);
+  letter-spacing: var(--h3-spacing);
+  color: var(--clr-white);
+  max-width: 475px;
+}
+
+h4 {
+  font-size: var(--h4--size);
+  color: var(--clr-dark-grey);
+  letter-spacing: var(--h4-spacing);
+  margin: 1.2rem 0;
+}
+
+h5 {
+  font-family: var(--karla-font);
+  font-size: var(--a-size);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--clr-grey);
+  letter-spacing: var(--a-spacing);
+  margin: 2.5rem 0 2rem 0;
 }
 
 p {
@@ -103,6 +141,7 @@ button {
   border: none;
   cursor: pointer;
   padding: 0.313rem 1.57rem;
+  transition: 0.3s;
 }
 
 button p {
@@ -152,6 +191,14 @@ header button:hover .header-btn-p {
 header a:hover {
   color: var(--clr-dark-grey);
 }
+.hero button:hover,
+.humanizing button:hover {
+  background-color: var(--clr-white);
+}
+.hero button:hover .hero-btn-p,
+.humanizing button:hover .humanizing-btn-p {
+  color: var(--clr-purple);
+}
 
 /* MAIN SECTION  HUMANIZING */
 .humanizing {
@@ -200,9 +247,69 @@ header a:hover {
   display: none;
 }
 
-/* MAIN SECTION DIFFERENT*/
+/* MAIN SECTION DIFFERENT */
 .different {
-  margin-top: 21rem;
+  margin-top: 18rem;
+}
+.different-list {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.different-list li {
+  max-width: 350px;
+}
+
+/* MAIN SECTION HERO */
+.hero {
+  background-color: var(--clr-purple);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4.32rem 4rem;
+  margin-top: 7rem;
+  margin-bottom: 7rem;
+  background-image: url('./images/bg-pattern-how-we-work-desktop.svg');
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+.hero button {
+  border: 2px solid var(--clr-white);
+}
+.hero-btn-p {
+  color: var(--clr-white);
+}
+
+/* FOOTER */
+footer {
+  background-color: #fafafa;
+  background-repeat: no-repeat;
+  background-image: url('./images/bg-pattern-footer-desktop.svg');
+  background-position: left top;
+  padding-bottom: 2rem;
+}
+.footer-logo-socials {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #dadada;
+  padding: 3rem 0 2rem 0;
+}
+.footer-logo-socials ul {
+  display: flex;
+  gap: 1rem;
+}
+.footer-links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-links li {
+  margin: 0.8rem 0;
+}
+.footer-list a {
+  color: var(--clr-purple);
 }
 
 @media screen and (max-width: 1440px) {
@@ -306,6 +413,55 @@ header a:hover {
   }
   .humanizing button {
     margin: 3rem auto 5rem;
+  }
+  /* SECTION DIFFERENT */
+  .different {
+    margin-top: 9rem;
+  }
+  .different-list {
+    flex-direction: column;
+  }
+  .different-list li {
+    text-align: center;
+  }
+  h2 {
+    text-align: center;
+    font-size: var(--h1-size-mobile);
+    margin-bottom: 4rem;
+  }
+  h2::before {
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+  /* SECTION HERO */
+  .hero {
+    flex-direction: column;
+    background-position: right top;
+    padding: 1.8rem 4rem;
+    margin-top: 7rem;
+    margin-bottom: 7rem;
+  }
+  .hero h3 {
+    font-size: 40px;
+    text-align: center;
+    max-width: 280px;
+    line-height: 2.5rem;
+  }
+  .hero button {
+    margin: 1rem 0;
+  }
+  /* FOOTER */
+  .footer-logo-socials {
+    flex-direction: column;
+  }
+  .footer-logo-socials img {
+    margin: 1rem 0;
+  }
+  .footer-links {
+    flex-direction: column;
+  }
+  .footer-list {
+    text-align: center;
   }
 }
 
